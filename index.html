@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&display=swap">
+
+    <title>Yummy Menu</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="menu">
+        <header>
+            <h1 style="text-align: center; justify-content: center ; color: rgb(56, 26, 26); font-family: 'Lobster', cursive;">Yummy Menu</h1>
+        </header>
+        <div id="main-items">
+            <h1>Main Items</h1>
+        </div>
+        <div id="add-ons">
+            <h1>Add-Ons</h1>
+        </div>
+    </div>
+
+    <script type="application/json" id="data-json">
+        [
+            {
+                "name": "Crepe Nutella",
+                "price": "$3",
+                "icon": "images/crepe.png",
+                "category": "Main Item"
+            },
+            {
+                "name": "Crepe Nutella Lotus",
+                "price": "$4.5",
+                "icon": "images/crepe.png",
+                "category": "Main Item"
+            },
+            {
+                "name": "Yummy Special",
+                "price": "$8",
+                "icon": "images/crepe.png",
+                "description": "Featuring a double layer of crepes filled with Nutella, Lotus, Oreo, KitKat, and Kinder, all topped with marshmallows.",
+                "category": "Main Item"
+            },
+            {
+                "name": "Waffle Nutella",
+                "price": "$4",
+                "icon": "images/waffle.png",
+                "category": "Main Item"
+            },
+            {
+                "name": "Croissant Nutella",
+                "price": "$4",
+                "icon": "images/Croissant.png",
+                "category": "Main Item"
+            },
+            {
+                "name": "Ice Cream Large",
+                "price": "$3",
+                "icon": "images/icecream.png",
+                "category": "Main Item"
+            },
+            {
+                "name": "Ice Cream Small",
+                "price": "$2",
+                "icon": "images/icecream.png",
+                "category": "Main Item"
+            },
+            {
+                "name": "Frisco",
+                "price": "$1",
+                "icon": "images/frisco.png",
+                "category": "Main Item"
+            },
+            {
+                "name": "Banana",
+                "price": "$0.5",
+                "icon": "images/banana.png",
+                "category": "Add-On"
+            },
+            {
+                "name": "Strawberry",
+                "price": "$0.5",
+                "icon": "images/strawberry.png",
+                "category": "Add-On"
+            },
+            {
+                "name": "KitKat",
+                "price": "$1",
+                "icon": "images/chocolate.png",
+                "category": "Add-On"
+            },
+            {
+                "name": "Kinder",
+                "price": "$1",
+                "icon": "images/chocolate.png",
+                "category": "Add-On"
+            },
+            {
+                "name": "Oreo",
+                "price": "$1",
+                "icon": "images/Oreo.png",
+                "category": "Add-On"
+            },
+            {
+                "name": "Marshmallow",
+                "price": "$1",
+                "icon": "images/Marshmellow.png",
+                "category": "Add-On"
+            },
+            {
+                "name": "Ice Cream Scoop",
+                "price": "$1",
+                "icon": "images/icecream.png",
+                "category": "Add-On"
+            }
+        ]
+    </script>
+
+    <script>
+        // Parse the JSON data
+        const data = JSON.parse(document.getElementById('data-json').textContent);
+    
+        // Get the menu sections
+        const mainItems = document.getElementById('main-items');
+        const addOns = document.getElementById('add-ons');
+    
+        // Loop through the data and create HTML elements
+        data.forEach(item => {
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'menu-item';
+    
+            if (item.icon) {
+                const img = document.createElement('img');
+                img.src = item.icon;
+                img.alt = item.name;
+                itemDiv.appendChild(img);
+            }
+    
+            const textDiv = document.createElement('div');
+            const name = document.createElement('h2');
+            name.textContent = item.name;
+            textDiv.appendChild(name);
+    
+            // Check for description and add it if it exists
+            if (item.description) {
+                const description = document.createElement('p');
+                description.textContent = item.description;
+                description.className = 'description';
+                textDiv.appendChild(description);
+            }
+    
+            const price = document.createElement('p');
+            price.textContent = item.price;
+            itemDiv.appendChild(price);
+    
+            itemDiv.insertBefore(textDiv, price);
+    
+            // Append item to the appropriate section
+            if (item.category === 'Main Item') {
+                mainItems.appendChild(itemDiv);
+            } else if (item.category === 'Add-On') {
+                addOns.appendChild(itemDiv);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+[
+    {
+        "name":"crepe",
+        "price":"$3",
+        "icon":"images/icons8-crepe-64.png"
+    },
+    {
+        "name":"waffle",
+        "price":"$4",
+        "icon":""
+    }
+]

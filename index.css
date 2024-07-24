@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #F4c2c2;
+}
+
+#menu {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#main-items, #add-ons {
+    margin-bottom: 30px;
+    color: rgb(56, 26, 26);
+    font-size: 0.9em;
+}
+
+.menu-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.menu-item img {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+.menu-item div {
+    flex: 1;
+}
+
+.menu-item h2 {
+    margin: 0;
+    font-size: 1em;
+    color: rgb(56, 26, 26);
+}
+
+.menu-item .description {
+    font-size: 0.8em;
+    color: rgb(56, 26, 26);
+}
+
+.menu-item p {
+    margin: 0;
+    font-size: 1em;
+    color: rgb(56, 26, 26);
+}
